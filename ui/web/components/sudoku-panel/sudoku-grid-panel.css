@@ -1,0 +1,83 @@
+/* ============================= */
+/* ОБЩИЕ СТИЛИ */
+/* ============================= */
+
+/* Центрируем всё приложение по вертикали и горизонтали */
+body {
+    font-family: Arial, sans-serif; /* шрифт по умолчанию */
+    display: flex;                  /* используем flex для центрирования */
+    justify-content: center;        /* горизонтально */
+    align-items: center;            /* вертикально */
+    height: 100vh;                  /* высота окна */
+    background: #f0f0f0;           /* светлый фон */
+    margin: 0;                      /* убираем стандартные отступы */
+}
+
+/* Контейнер для всей сетки */
+.wrapper {
+    display: flex;
+    flex-direction: column; /* сетка сверху, можно добавить кнопки снизу при необходимости */
+    align-items: center;
+}
+
+/* ============================= */
+/* СЕТКА SUDOKU */
+/* ============================= */
+
+/* Основная сетка 9x9 */
+.sudoku-grid {
+    display: grid;                       /* создаём CSS Grid */
+    grid-template-columns: repeat(9, 55px); /* 9 колонок по 55px */
+    grid-template-rows: repeat(9, 55px);    /* 9 строк по 55px */
+    gap: 2px;                             /* расстояние между ячейками */
+    background: #2c3e50;                  /* цвет фона для границ блоков */
+    padding: 2px;                          /* внутренний отступ */
+}
+
+/* ============================= */
+/* ЯЧЕЙКИ */
+/* ============================= */
+
+/* Обычная ячейка */
+.cell {
+    width: 55px;
+    height: 55px;
+    text-align: center;   /* выравнивание текста по горизонтали */
+    font-size: 22px;      /* размер цифр */
+    line-height: 55px;    /* вертикальное выравнивание */
+    background: #fff;     /* белый фон */
+    border: 1px solid #ccc; /* тонкая граница */
+    cursor: pointer;      /* курсор при наведении */
+    user-select: none;    /* запрет выделения текста */
+    box-sizing: border-box; /* чтобы padding/границы не увеличивали размер */
+    transition: background 0.2s, color 0.2s; /* плавные эффекты */
+}
+
+/* Подсветка при наведении */
+.cell:hover {
+    background: #e8f4ff;
+}
+
+/* Выбранная ячейка */
+.cell.selected {
+    background: #cce5ff;
+}
+
+/* Фиксированная ячейка (из начального поля) */
+.cell.fixed {
+    font-weight: bold;
+    background: #f4f4f4;
+    cursor: default; /* нельзя изменять */
+}
+
+/* Ошибочная ячейка */
+.cell.error {
+    background: #f8d7da; /* светло-красный фон */
+    color: #c0392b;      /* тёмно-красный текст */
+}
+
+/* Толстые границы блоков 3x3 */
+.border-right { border-right: 3px solid #2c3e50; }
+.border-bottom { border-bottom: 3px solid #2c3e50; }
+.border-left { border-left: 3px solid #2c3e50; }
+.border-top { border-top: 3px solid #2c3e50; }

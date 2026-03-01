@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<title>Sudoku SPA</title>
+
+<!-- Стили компонентов -->
+<link rel="stylesheet" href="../components/sudoku-panel/sudoku-grid-panel.css">
+<link rel="stylesheet" href="../components/number-panel/number-panel.css">
+
+<style>
+/* ===== Основные стили ===== */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: #f0f0f0;
+}
+
+/* Основной контейнер: сетка + панель чисел */
+.game-container {
+    display: flex;
+    gap: 20px;
+    align-items: flex-start;
+}
+
+/* ===== Сетка Sudoku ===== */
+.sudoku-panel {
+    width: 495px; /* 9*55px + 8*gap(2px) */
+    height: 495px;
+}
+
+/* ===== Панель справа (инструменты + числа) ===== */
+.number-panel-container {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+/* Панель инструментов */
+.button-tool-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.button-tool {
+    width: 55px;
+    height: 55px;
+    font-size: 22px;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    background-color: #95a5a6;
+    color: white;
+}
+.button-tool:hover {
+    background-color: #7f8c8d;
+}
+
+/* Сетка цифр вертикально */
+.button-number-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-auto-rows: 55px;
+    gap: 5px;
+}
+
+.button-number {
+    width: 55px;
+    height: 55px;
+    font-size: 22px;
+    border-radius: 6px;
+    border: none;
+    cursor: pointer;
+    background-color: #3498db;
+    color: white;
+    transition: 0.2s;
+}
+.button-number:hover {
+    background-color: #2980b9;
+}
+</style>
+</head>
+<body>
+
+<div class="game-container">
+
+    <!-- Сетка Sudoku -->
+    <div class="sudoku-panel">
+        <div class="sudoku-grid" id="sudokuGrid"></div>
+    </div>
+
+    <!-- Панель инструментов + числа -->
+    <div class="number-panel-container">
+
+        <!-- Панель инструментов -->
+        <div class="button-tool-grid">
+            <button class="button-tool" data-action="reset">↻</button>
+            <button class="button-tool" data-action="erase">🩹</button>
+            <button class="button-tool" data-action="pen" id="pen-btn">✏️</button>
+            <button class="button-tool" data-action="hint">💡</button>
+        </div>
+
+        <!-- Цифры 1–9 вертикально -->
+        <div class="button-number-grid" id="button-number-grid">
+            <button class="button-number" data-value="1">1</button>
+            <button class="button-number" data-value="2">2</button>
+            <button class="button-number" data-value="3">3</button>
+            <button class="button-number" data-value="4">4</button>
+            <button class="button-number" data-value="5">5</button>
+            <button class="button-number" data-value="6">6</button>
+            <button class="button-number" data-value="7">7</button>
+            <button class="button-number" data-value="8">8</button>
+            <button class="button-number" data-value="9">9</button>
+        </div>
+
+    </div>
+</div>
+
+<!-- JS Компоненты -->
+<script src="../components/sudoku-panel/sudoku-grid-panel.js"></script>
+<script src="../components/number-panel/number-panel.js"></script>
+
+</body>
+</html>

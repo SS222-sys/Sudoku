@@ -1,0 +1,30 @@
+<template id="number-template">
+    <link rel="stylesheet" href="number-panel.css">
+
+    <div class="number-panel">
+        <!-- Панель инструментов -->
+        <div class="button-tool-grid">
+            <button class="button-tool" data-action="reset">↻</button>
+            <button class="button-tool" data-action="erase">🩹</button>
+            <button class="button-tool" data-action="pen" id="pen-btn">
+                ✏️<span class="badge">OFF</span>
+            </button>
+            <button class="button-tool" data-action="hint">
+                💡<span class="badge">111</span>
+            </button>
+        </div>
+
+        <!-- Сетка цифр 1–9 -->
+        <div class="button-number-grid" id="button-number-grid">
+            <button class="button-number" data-action="number" data-value="1">1</button>
+            <button class="button-number" data-action="number" data-value="2">2</button>
+            <button class="button-number" data-action="number" data-value="3">3</button>
+            <button class="button-number" data-action="number" data-value="4">4</button>
+            <button class="button-number" data-action="number" data-value="5">5</button>
+            <button class="button-number" data-action="number" data-value="6">6</button>
+            <button class="button-number" data-action="number" data-value="7">7</button>
+            <button class="button-number" data-action="number" data-value="8">8</button>
+            <button class="button-number" data-action="number" data-value="9">9</button>
+        </div>
+    </div>
+</template>
